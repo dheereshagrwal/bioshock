@@ -13,7 +13,8 @@ const DaysPassed: React.FC = () => {
   const [daysPassed, setDaysPassed] = useState<number | null>(null); // Start with null to track loading
 
   useEffect(() => {
-    const targetDate = new Date("2024-10-03");
+    // Set the target date and time to 3rd Oct 2024 at 11:00 PM
+    const targetDate = new Date("2024-10-03T17:00:00");
     setDaysPassed(calculateDaysPassed(targetDate));
   }, []);
 
@@ -27,7 +28,7 @@ const DaysPassed: React.FC = () => {
       className={`flex flex-col items-center justify-center min-h-screen bg-zinc-950 p-6 ${inter.className}`}
     >
       <h1 className="text-3xl md:text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 h-18 md:h-16">
-        Days passed since getting blocked:
+        Days passed since not getting blocked:
       </h1>
       <span className="text-6xl md:text-8xl font-bold text-white rounded-lg m-6">
         {daysPassed}
