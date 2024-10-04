@@ -10,12 +10,17 @@ const inter = Inter({
 });
 
 const DaysPassed: React.FC = () => {
-  const [daysPassed, setDaysPassed] = useState<number>(0);
+  const [daysPassed, setDaysPassed] = useState<number | null>(null); // Start with null to track loading
 
   useEffect(() => {
     const targetDate = new Date("2024-10-02");
     setDaysPassed(calculateDaysPassed(targetDate));
   }, []);
+
+  // Conditionally render only if daysPassed is calculated
+  if (daysPassed === null) {
+    return null; // Return nothing until the state is updated
+  }
 
   return (
     <div
