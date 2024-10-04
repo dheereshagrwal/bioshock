@@ -13,7 +13,7 @@ const DaysPassed: React.FC = () => {
   const [daysPassed, setDaysPassed] = useState<number | null>(null); // Start with null to track loading
 
   useEffect(() => {
-    const targetDate = new Date("2024-10-02");
+    const targetDate = new Date("2024-10-03");
     setDaysPassed(calculateDaysPassed(targetDate));
   }, []);
 
