@@ -13,9 +13,20 @@ const DaysPassed: React.FC = () => {
   const [daysPassed, setDaysPassed] = useState<number | null>(null); // Start with null to track loading
 
   useEffect(() => {
-    // Set the target date and time to 3rd Oct 2024 at 11:00 PM
+    // Set the target date and time to 3rd Oct 2024 at 05:00 PM
     const targetDate = new Date("2024-10-03T17:00:00");
-    setDaysPassed(calculateDaysPassed(targetDate));
+
+    // Function to update the days passed
+    const updateDaysPassed = () => {
+      setDaysPassed(calculateDaysPassed(targetDate));
+    };
+
+    // Call updateDaysPassed immediately and then set interval to update every 100 ms
+    updateDaysPassed();
+    const intervalId = setInterval(updateDaysPassed, 100); // Update every 100 ms
+
+    // Cleanup interval on unmount
+    return () => clearInterval(intervalId);
   }, []);
 
   // Conditionally render only if daysPassed is calculated
