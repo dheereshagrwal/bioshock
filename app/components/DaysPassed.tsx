@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { calculateDaysPassed, calculateMonthsAndDays } from "@/utils/dateUtils";
+import { calculateMonthsAndDays } from "@/utils/dateUtils";
 import { Inter } from "next/font/google";
 
 // Import the Inter font from Google Fonts using next/font
